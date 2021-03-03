@@ -1,4 +1,5 @@
 #include "Agent.h"
+#include "Behavior.h"
 
 Agent::Agent() : Actor()
 {
@@ -34,7 +35,8 @@ void Agent::update(float deltaTime)
 	m_force = { 0,0 };
 
 	//TO DO: update forces
-	
+	for (int i = 0; i < m_behaviors.size(); i++)
+		m_behaviors[i]->update(this, deltaTime);
 
 	//updates velocity with the new force
 	setVelocity(getVelocity() + m_force * deltaTime);
@@ -56,5 +58,6 @@ void Agent::addForce(MathLibrary::Vector2 force)
 
 void Agent::addBehavior(Behavior* behavior)
 {
-	m_behaviors.push_back(behavior);
+	if(behavior)
+		m_behaviors.push_back(behavior);
 }

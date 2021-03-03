@@ -2,11 +2,12 @@
 #include "SteeringBehavior.h"
 class Actor;
 
-class SeekBehavior : public SteeringBehavior
+class WanderingBehavior :
+    public SteeringBehavior
 {
 public:
-	SeekBehavior();
-	SeekBehavior(Actor* target,float seekForce = 1);
+	WanderingBehavior();
+	WanderingBehavior(Actor* target, float seekForce = 1);
 
 	void setTarget(Actor* target) { m_target = target; }
 	Actor* getTarget() { return m_target; }

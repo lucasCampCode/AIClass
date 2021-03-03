@@ -19,6 +19,7 @@ Actor::Actor()
     m_childCount = 0;
     m_maxSpeed = 1;
 }
+
 Actor::~Actor()
 {
     delete m_globalTransform;
@@ -313,8 +314,7 @@ void Actor::updateFacing()
 {
     if (m_velocity.getMagnitude() <= 0)
         return;
-
-    getForward() = m_velocity.getNormalized();
+    setForward(m_velocity.getNormalized());
 }
 
 void Actor::updateGlobalTransform()

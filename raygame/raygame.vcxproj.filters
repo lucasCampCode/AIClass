@@ -50,6 +50,15 @@
     <ClCompile Include="SeekBehavior.cpp">
       <Filter>AI\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>AI\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FleeBehavior.cpp">
+      <Filter>AI\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderingBehavior.cpp">
+      <Filter>AI\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -80,6 +89,15 @@
       <Filter>AI\Header files</Filter>
     </ClInclude>
     <ClInclude Include="SteeringBehavior.h">
+      <Filter>AI\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>AI\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeBehavior.h">
+      <Filter>AI\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderingBehavior.h">
       <Filter>AI\Header files</Filter>
     </ClInclude>
   </ItemGroup>

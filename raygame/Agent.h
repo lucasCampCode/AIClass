@@ -1,10 +1,7 @@
 #pragma once
 #include "Actor.h"
+#include "Behavior.h"
 #include <vector>
-class Behavior 
-{
-    virtual void update(Agent* agent , float deltaTime) = 0;
-};
 
 class Agent : public Actor
 {
