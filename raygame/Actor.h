@@ -32,7 +32,7 @@ public:
     void setForward(MathLibrary::Vector2 value);
 
     MathLibrary::Vector2 getWorldPosition();
-    void setWorldPostion(MathLibrary::Vector2 value);
+    void setWorldPosition(MathLibrary::Vector2 value);
     MathLibrary::Vector2 getLocalPosition();
     void setLocalPosition(MathLibrary::Vector2 value);
 

@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "SeekBehavior.h"
 #include "FleeBehavior.h"
+#include "WanderingBehavior.h"
 
 bool Game::m_gameOver = false;
 Scene** Game::m_scenes = new Scene*;
@@ -31,7 +32,8 @@ void Game::start()
 	Player* player = new Player(10, 10, 2.5f, "Images/player.png", 1);
 	Agent* enemy = new Agent(20, 10, 2.5f, "Images/enemy.png", 1, 1);
 
-	FleeBehavior* seek = new FleeBehavior(player);
+	WanderingBehavior* seek = new WanderingBehavior(10);
+
 	enemy->addBehavior(seek);
 	Scene* scene = new Scene();
 	scene->addActor(player);
