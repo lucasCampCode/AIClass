@@ -7,18 +7,19 @@ WanderingBehavior::WanderingBehavior()
 	m_seekForce = 1;
 }
 
-WanderingBehavior::WanderingBehavior( float seekForce)
+WanderingBehavior::WanderingBehavior(float seekForce, float circleDistance)
 {
 	m_seekForce = seekForce;
+	m_circleDistance = circleDistance;
 }
 
 MathLibrary::Vector2 WanderingBehavior::calculateForce(Agent* agent)
 {
 	srand(time(NULL));
 
-	MathLibrary::Vector2 circleDialate = MathLibrary::Vector2::normalize(MathLibrary::Vector2((rand()% 3) - 1,(rand() % 3) - 1))*m_seekForce;
-	MathLibrary::Vector2 circleOnAgent = circleDialate + agent->getWorldPosition();
-	MathLibrary::Vector2 nextPoint = agent->getVelocity() + circleOnAgent;
+	MathLibrary::Vector2 circleDialate = MathLibrary::Vector2::normalize(MathLibrary::Vector2((rand()% 3) - 1,(rand() % 3) - 1)) * m_seekForce;
+	MathLibrary::Vector2 circleOffSet = agent->getVelocity() * m_circleDistance;
+	MathLibrary::Vector2 nextPoint = circleDialate + (agent->getWorldPosition() + circleOffSet);
 	//finds the direction to move in
 	MathLibrary::Vector2 direction = MathLibrary::Vector2::normalize(nextPoint - agent->getWorldPosition());
 	//scale the direction vector by the seekForce

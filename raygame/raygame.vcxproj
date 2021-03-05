@@ -154,6 +154,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PursueBehavior.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="FleeBehavior.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PursueBehavior.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SeekBehavior.h" />
     <ClInclude Include="Sprite.h" />
