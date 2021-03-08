@@ -45,6 +45,6 @@ void WanderingBehavior::update(Agent* agent, float deltaTime)
 
 void WanderingBehavior::draw(Agent* agent)
 {
-	DrawCircleLines(m_circle.x *32,m_circle.y*32,m_seekForce*32 , BLUE);
+	DrawCircleLines(m_circle.x *32,m_circle.y*32,getForceScale()*32 , BLUE);
 	DrawLine(m_circle.x * 32, m_circle.y * 32, m_point.x * 32, m_point.y * 32, RED);
 }

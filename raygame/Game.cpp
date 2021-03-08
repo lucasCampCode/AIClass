@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "raylib.h"
 #include "Player.h"
+#include "Enemy.h"
 #include "SeekBehavior.h"
 #include "FleeBehavior.h"
 #include "WanderingBehavior.h"
@@ -12,6 +13,8 @@ bool Game::m_gameOver = false;
 Scene** Game::m_scenes = new Scene*;
 int Game::m_sceneCount = 0;
 int Game::m_currentSceneIndex = 0;
+int Game::m_screenWidth = 1024;
+int Game::m_screenHeight = 760;
 
 
 Game::Game()
@@ -25,20 +28,17 @@ Game::Game()
 
 void Game::start()
 {
-	int screenWidth = 1024;
-	int screenHeight = 760;
 
-	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
-	m_camera->offset = { (float)screenWidth / 2, (float)screenHeight / 2 };
-	m_camera->target = { (float)screenWidth / 2, (float)screenHeight / 2 };
+	InitWindow(m_screenWidth, m_screenHeight, "raylib [core] example - basic window");
+	m_camera->offset = { (float)m_screenWidth / 2, (float)m_screenHeight / 2 };
+	m_camera->target = { (float)m_screenWidth / 2, (float)m_screenHeight / 2 };
 	m_camera->zoom = 1;
 	Player* player = new Player(10, 10, 2.5f, "Images/player.png", 1);
-	Agent* enemy = new Agent(20, 10, 2.5f, "Images/enemy.png", 1, 1);
+	Enemy* enemy = new Enemy(20, 10, 2.5f, "Images/enemy.png",player);
 
 	WanderingBehavior* wander = new WanderingBehavior(10,10);
 	ArriveBehavior* arrive = new ArriveBehavior(player, 2);
 
-	enemy->addBehavior(wander);
 	Scene* scene = new Scene();
 	scene->addActor(player);
 	scene->addActor(enemy);

@@ -279,14 +279,6 @@ void Actor::update(float deltaTime)
     if (m_velocity.getMagnitude() > m_maxSpeed)
         m_velocity = m_velocity.getNormalized() * m_maxSpeed;
 
-    if (getWorldPosition().x > GetScreenWidth() / 32)
-        setWorldPosition(MathLibrary::Vector2(0, getWorldPosition().y));
-    if (getWorldPosition().x < 0)
-        setWorldPosition(MathLibrary::Vector2((GetScreenWidth() / 32) - 1, getWorldPosition().y));
-    if (getWorldPosition().y > GetScreenHeight() / 32)
-        setWorldPosition(MathLibrary::Vector2(getWorldPosition().x,0));
-    if (getWorldPosition().y < 0)
-        setWorldPosition(MathLibrary::Vector2(getWorldPosition().x, (GetScreenHeight() / 32) - 1));
 
     //Increase position by the current velocity
     translate(m_velocity * deltaTime);

@@ -34,6 +34,9 @@ public:
 
     float getMaxForce() { return m_maxForce; }
     void setMaxForce(float value) { m_maxForce = value; }
+    
+    template<typename BehaviorType>
+    BehaviorType* getBehavior();
 
 private:
 	MathLibrary::Vector2 m_force;
@@ -41,3 +44,16 @@ private:
 	std::vector<Behavior*> m_behaviors;
 };
 
+template<typename BehaviorType>
+inline BehaviorType* Agent::getBehavior()
+{
+    for (int i = 0; i < m_behaviors.size(); i++) 
+    {
+        BehaviorType* behavior = dynamic_cast<BehaviorType*>(m_behaviors[i]);
+
+        if (behavior)
+            return behavior;
+    }
+
+    return nullptr;
+}
