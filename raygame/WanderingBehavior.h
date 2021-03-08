@@ -14,7 +14,6 @@ public:
 	void draw(Agent* agent) override;
 private:
 	//the agent the behavior is seeking
-	float m_seekForce;
 	float m_circleDistance;
 	MathLibrary::Vector2 m_startVector = { 1,0 };
 	MathLibrary::Vector2 m_circle;
