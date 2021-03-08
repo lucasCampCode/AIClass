@@ -11,7 +11,6 @@ bool simpleEnemy::checkTargetInSight()
     MathLibrary::Vector2 direction = velocity.getNormalized();
     float magnitude = velocity.getMagnitude();
     float dotProduct = MathLibrary::Vector2::dotProduct(getForward(), direction);
-    acos(dotProduct);
     //check if the angle is greater than the enemies viewing angle
     if (acos(dotProduct) < 0.5)
         return true;
@@ -39,8 +38,23 @@ void simpleEnemy::start()
 
 void simpleEnemy::update(float deltaTime)
 {
+    switch (m_enemyState)
+    {
+    case WANDER:
+        m_wander->setForceScale(10);
+        m_seek->setForceScale(0);
+        break;
+    case SEEK:
+        m_seek->setForceScale(10);
+        m_wander->setForceScale(0);
+        break;
+    default:
+        break;
+    }
+    Enemy::update(deltaTime);
 }
 
 void simpleEnemy::setTarget(Actor* agent)
 {
+
 }
