@@ -46,6 +46,13 @@ void Agent::update(float deltaTime)
 	Actor::update(deltaTime);
 }
 
+void Agent::draw()
+{
+	for (int i = 0; i < m_behaviors.size(); i++)
+		m_behaviors[i]->draw(this);
+	Actor::draw();
+}
+
 void Agent::addForce(MathLibrary::Vector2 force)
 {
 	//add the force to the total force

@@ -26,7 +26,7 @@ public:
     Agent(float x, float y, float collisionRadius, const char* spriteFilePath, float maxSpeed, float maxForce);
 
     void update(float deltaTime) override;
-
+    void draw() override;
     //add the given force to the total force that is being applied by the agent;
     void addForce(MathLibrary::Vector2 force);
 

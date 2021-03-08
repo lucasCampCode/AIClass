@@ -65,6 +65,9 @@
     <ClCompile Include="EvadeBehavior.cpp">
       <Filter>AI\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ArriveBehavior.cpp">
+      <Filter>AI\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -110,6 +113,9 @@
       <Filter>AI\Header files</Filter>
     </ClInclude>
     <ClInclude Include="EvadeBehavior.h">
+      <Filter>AI\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArriveBehavior.h">
       <Filter>AI\Header files</Filter>
     </ClInclude>
   </ItemGroup>

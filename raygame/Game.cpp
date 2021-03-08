@@ -4,6 +4,9 @@
 #include "SeekBehavior.h"
 #include "FleeBehavior.h"
 #include "WanderingBehavior.h"
+#include "PursueBehavior.h"
+#include "EvadeBehavior.h"
+#include "ArriveBehavior.h"
 
 bool Game::m_gameOver = false;
 Scene** Game::m_scenes = new Scene*;
@@ -32,9 +35,10 @@ void Game::start()
 	Player* player = new Player(10, 10, 2.5f, "Images/player.png", 1);
 	Agent* enemy = new Agent(20, 10, 2.5f, "Images/enemy.png", 1, 1);
 
-	WanderingBehavior* seek = new WanderingBehavior(10);
+	WanderingBehavior* wander = new WanderingBehavior(10,10);
+	ArriveBehavior* arrive = new ArriveBehavior(player, 2);
 
-	enemy->addBehavior(seek);
+	enemy->addBehavior(wander);
 	Scene* scene = new Scene();
 	scene->addActor(player);
 	scene->addActor(enemy);

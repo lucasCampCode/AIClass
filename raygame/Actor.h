@@ -27,6 +27,7 @@ public:
 
     bool getStarted() { return m_started; }
     Actor* getParent() { return m_parent; }
+    float getMaxSpeed() { return m_maxSpeed; }
 
     MathLibrary::Vector2 getForward();
     void setForward(MathLibrary::Vector2 value);
