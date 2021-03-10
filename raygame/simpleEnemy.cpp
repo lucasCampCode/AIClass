@@ -1,4 +1,5 @@
 #include "simpleEnemy.h"
+#include "Player.h"
 #include "SeekBehavior.h"
 #include "WanderingBehavior.h"
 bool simpleEnemy::checkTargetInSight()
@@ -12,7 +13,7 @@ bool simpleEnemy::checkTargetInSight()
     float magnitude = velocity.getMagnitude();
     float dotProduct = MathLibrary::Vector2::dotProduct(getForward(), direction);
     //check if the angle is greater than the enemies viewing angle
-    if (acos(dotProduct) < 0.5)
+    if (acos(dotProduct) < 0.5f)
         return true;
     return false;
 }
@@ -20,8 +21,17 @@ bool simpleEnemy::checkTargetInSight()
 void simpleEnemy::onCollision(Actor* other)
 {
     //check to see if the enemy ran into the player
+    Player* player = dynamic_cast<Player*>(other); 
     //if the enemy has run into the player ,deal damage to player
-    //if the player's health is less than 0, set the target to be nullptr
+    if (player)
+    {
+        player->takeDamage(getDamage());
+        //if the player's health is less than 0, set the target to be nullptr
+        if (player->getHealth() <= 0)
+        {
+            setTarget(nullptr);
+        }
+    }
 }
 
 void simpleEnemy::start()
@@ -56,5 +66,6 @@ void simpleEnemy::update(float deltaTime)
 
 void simpleEnemy::setTarget(Actor* agent)
 {
-
+    Enemy::setTarget(agent);
+    m_seek->setTarget(agent);
 }
