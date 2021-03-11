@@ -15,10 +15,22 @@
     <Filter Include="AI">
       <UniqueIdentifier>{3d77d178-d0c5-48f4-828a-24dc98d5678a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\Header files">
+    <Filter Include="AI\SteeringBehaviors">
+      <UniqueIdentifier>{6257e1d3-1947-4a7a-badd-d409d39b4126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\SteeringBehaviors\Header files">
       <UniqueIdentifier>{cc8bfb81-0e4c-474c-b228-837b943dab24}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\Source Files">
+    <Filter Include="AI\DecisionTree">
+      <UniqueIdentifier>{f2b32ae7-edde-4ca9-93d8-30c9f50d5f7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\DecisionTree\Header files">
+      <UniqueIdentifier>{eb1f071c-c9f0-45f8-8402-f6fa902fba8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\DecisionTree\Source files">
+      <UniqueIdentifier>{59f649da-9265-46b0-a90a-53c3db10cb26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\SteeringBehaviors\Source files">
       <UniqueIdentifier>{74714532-bb2e-4813-8293-f35f957d68fd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -44,35 +56,38 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Agent.cpp">
-      <Filter>AI\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SeekBehavior.cpp">
-      <Filter>AI\Source Files</Filter>
+      <Filter>AI\SteeringBehaviors\Source files</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>AI\Source Files</Filter>
+      <Filter>AI\SteeringBehaviors\Source files</Filter>
     </ClCompile>
     <ClCompile Include="FleeBehavior.cpp">
-      <Filter>AI\Source Files</Filter>
+      <Filter>AI\SteeringBehaviors\Source files</Filter>
     </ClCompile>
     <ClCompile Include="WanderingBehavior.cpp">
-      <Filter>AI\Source Files</Filter>
+      <Filter>AI\SteeringBehaviors\Source files</Filter>
     </ClCompile>
     <ClCompile Include="PursueBehavior.cpp">
-      <Filter>AI\Source Files</Filter>
+      <Filter>AI\SteeringBehaviors\Source files</Filter>
     </ClCompile>
     <ClCompile Include="EvadeBehavior.cpp">
-      <Filter>AI\Source Files</Filter>
+      <Filter>AI\SteeringBehaviors\Source files</Filter>
     </ClCompile>
     <ClCompile Include="ArriveBehavior.cpp">
-      <Filter>AI\Source Files</Filter>
+      <Filter>AI\SteeringBehaviors\Source files</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="simpleEnemy.cpp">
+    <ClCompile Include="SimpleEnemy.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agent.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="ABDecision.cpp">
+      <Filter>AI\DecisionTree\Source files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,41 +109,47 @@
     <ClInclude Include="Bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Agent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Behavior.h">
-      <Filter>AI\Header files</Filter>
-    </ClInclude>
     <ClInclude Include="SeekBehavior.h">
-      <Filter>AI\Header files</Filter>
+      <Filter>AI\SteeringBehaviors\Header files</Filter>
     </ClInclude>
     <ClInclude Include="SteeringBehavior.h">
-      <Filter>AI\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>AI\Header files</Filter>
+      <Filter>AI\SteeringBehaviors\Header files</Filter>
     </ClInclude>
     <ClInclude Include="FleeBehavior.h">
-      <Filter>AI\Header files</Filter>
+      <Filter>AI\SteeringBehaviors\Header files</Filter>
     </ClInclude>
     <ClInclude Include="WanderingBehavior.h">
-      <Filter>AI\Header files</Filter>
+      <Filter>AI\SteeringBehaviors\Header files</Filter>
     </ClInclude>
     <ClInclude Include="PursueBehavior.h">
-      <Filter>AI\Header files</Filter>
+      <Filter>AI\SteeringBehaviors\Header files</Filter>
     </ClInclude>
     <ClInclude Include="EvadeBehavior.h">
-      <Filter>AI\Header files</Filter>
+      <Filter>AI\SteeringBehaviors\Header files</Filter>
     </ClInclude>
     <ClInclude Include="ArriveBehavior.h">
-      <Filter>AI\Header files</Filter>
+      <Filter>AI\SteeringBehaviors\Header files</Filter>
     </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="simpleEnemy.h">
+    <ClInclude Include="SimpleEnemy.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Agent.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>AI\SteeringBehaviors\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Behavior.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Decision.h">
+      <Filter>AI\DecisionTree\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ABDecision.h">
+      <Filter>AI\DecisionTree\Header files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

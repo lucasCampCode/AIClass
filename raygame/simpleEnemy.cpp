@@ -1,8 +1,8 @@
-#include "simpleEnemy.h"
-#include "Player.h"
+#include "SimpleEnemy.h"
 #include "SeekBehavior.h"
 #include "WanderingBehavior.h"
-bool simpleEnemy::checkTargetInSight()
+#include "Player.h"
+bool SimpleEnemy::checkTargetInSight()
 {
     
     if (getTarget() == nullptr)
@@ -13,12 +13,12 @@ bool simpleEnemy::checkTargetInSight()
     float magnitude = velocity.getMagnitude();
     float dotProduct = MathLibrary::Vector2::dotProduct(getForward(), direction);
     //check if the angle is greater than the enemies viewing angle
-    if (acos(dotProduct) < 0.5f)
+    if (acos(dotProduct) < 0.75f)
         return true;
     return false;
 }
 
-void simpleEnemy::onCollision(Actor* other)
+void SimpleEnemy::onCollision(Actor* other)
 {
     //check to see if the enemy ran into the player
     Player* player = dynamic_cast<Player*>(other); 
@@ -34,7 +34,7 @@ void simpleEnemy::onCollision(Actor* other)
     }
 }
 
-void simpleEnemy::start()
+void SimpleEnemy::start()
 {
     Enemy::start();
 
@@ -46,12 +46,16 @@ void simpleEnemy::start()
     setTarget(Enemy::getTarget());
 }
 
-void simpleEnemy::update(float deltaTime)
+void SimpleEnemy::update(float deltaTime)
 {
+    if (checkTargetInSight())
+        m_enemyState = SEEK;
+    else
+        m_enemyState = WANDER;
     switch (m_enemyState)
     {
     case WANDER:
-        m_wander->setForceScale(10);
+        m_wander->setForceScale(5);
         m_seek->setForceScale(0);
         break;
     case SEEK:
@@ -64,7 +68,7 @@ void simpleEnemy::update(float deltaTime)
     Enemy::update(deltaTime);
 }
 
-void simpleEnemy::setTarget(Actor* agent)
+void SimpleEnemy::setTarget(Actor* agent)
 {
     Enemy::setTarget(agent);
     m_seek->setTarget(agent);

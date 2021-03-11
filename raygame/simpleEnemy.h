@@ -8,9 +8,9 @@ enum EnemyState {
 class WanderingBehavior;
 class SeekBehavior;
 
-class simpleEnemy :
-    public Enemy
+class SimpleEnemy : public Enemy
 {
+public:
     using Enemy::Enemy;
     bool checkTargetInSight();
 

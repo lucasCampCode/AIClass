@@ -25,6 +25,9 @@ void Player::update(float deltatime)
             getWorldPosition().x, getWorldPosition().y, 2, "Images/bullet.png", 5, getForward() * 5));
 
     Actor::update(deltatime);
+
+    if (getHealth() <= 0)
+        Game::destroy(this);
 }
 
 void Player::debug()

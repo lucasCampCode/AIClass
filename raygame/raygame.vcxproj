@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ABDecision.cpp" />
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="ArriveBehavior.cpp" />
@@ -160,17 +161,19 @@
     <ClCompile Include="PursueBehavior.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />
-    <ClCompile Include="simpleEnemy.cpp" />
+    <ClCompile Include="SimpleEnemy.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="WanderingBehavior.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ABDecision.h" />
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Agent.h" />
     <ClInclude Include="ArriveBehavior.h" />
     <ClInclude Include="Behavior.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Decision.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EvadeBehavior.h" />
     <ClInclude Include="FleeBehavior.h" />
@@ -179,7 +182,7 @@
     <ClInclude Include="PursueBehavior.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SeekBehavior.h" />
-    <ClInclude Include="simpleEnemy.h" />
+    <ClInclude Include="SimpleEnemy.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SteeringBehavior.h" />
     <ClInclude Include="WanderingBehavior.h" />

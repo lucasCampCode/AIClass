@@ -13,6 +13,8 @@ SeekBehavior::SeekBehavior(Actor* target,float seekForce)
 }
 MathLibrary::Vector2 SeekBehavior::calculateForce(Agent* agent)
 {
+	if (m_target == nullptr)
+		return { 0,0 };
 	//finds the direction to move in
 	MathLibrary::Vector2 direction = MathLibrary::Vector2::normalize(m_target->getWorldPosition() - agent->getWorldPosition());
 	//scale the direction vector by the seekForce

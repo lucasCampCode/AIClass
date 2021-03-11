@@ -1,8 +1,9 @@
 #include "Enemy.h"
 #include "Game.h"
-Enemy::Enemy(float x, float y, float collisionRadius, const char* spriteFilePath, Actor* agent, float health, float damage, float maxSpeed, float maxForce)
+Enemy::Enemy(float x, float y, float collisionRadius, const char* spriteFilePath, Actor* target, float health, float damage, float maxSpeed, float maxForce)
     : Character(x, y, collisionRadius, spriteFilePath, health, damage, maxSpeed, maxForce)
 {
+    m_target = target;
 }
 void Enemy::update(float deltaTime)
 {
