@@ -22,16 +22,12 @@ void ComplexEnemy::start()
 {
     Enemy::start();
     //ai inizialization decisions
-    m_decision1 = new ABDecision();
-    m_decision2 = new ABDecision();
     WanderDecision* wander = new WanderDecision();
     ShootDecision* shoot = new ShootDecision();
     SeekDecision* seek = new SeekDecision();
-    //agranging them in there pattern
-    m_decision1->setLeft(m_decision2);
-    m_decision1->setRight(wander);
-    m_decision2->setLeft(shoot);
-    m_decision2->setRight(seek);
+
+    m_decision2 = new ABDecision(shoot,seek);
+    m_decision1 = new ABDecision(m_decision2,wander);
     //retrives behavior from agent
     m_seek = getBehavior<SeekBehavior>();
     m_wander = getBehavior<WanderingBehavior>();
