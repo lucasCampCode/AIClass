@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "Player.h"
 #include "SimpleEnemy.h"
+#include "ComplexEnemy.h"
 #include "SeekBehavior.h"
 #include "FleeBehavior.h"
 #include "WanderingBehavior.h"
@@ -33,12 +34,14 @@ void Game::start()
 	m_camera->offset = { (float)m_screenWidth / 2, (float)m_screenHeight / 2 };
 	m_camera->target = { (float)m_screenWidth / 2, (float)m_screenHeight / 2 };
 	m_camera->zoom = 1;
-	Player* player = new Player(10, 10, 2, "Images/player.png",10,1);
-	SimpleEnemy* enemy = new SimpleEnemy(20, 10, 2, "Images/enemy.png",player,10,2);
+	Player* player = new Player(10, 10, 1, "Images/player.png",10,1);
+	ComplexEnemy* enemy = new ComplexEnemy(20, 10, 1, "Images/enemy.png",player,10,2);
+	//set the enemy behaviors
 	SeekBehavior* seek = new SeekBehavior();
 	WanderingBehavior* wander = new WanderingBehavior();
 	enemy->addBehavior(seek);
 	enemy->addBehavior(wander);
+
 	Scene* scene = new Scene();
 	scene->addActor(player);
 	scene->addActor(enemy);

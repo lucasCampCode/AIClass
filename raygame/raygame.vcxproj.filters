@@ -89,6 +89,21 @@
     <ClCompile Include="ABDecision.cpp">
       <Filter>AI\DecisionTree\Source files</Filter>
     </ClCompile>
+    <ClCompile Include="ComplexEnemy.cpp">
+      <Filter>AI\DecisionTree\Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootDecision.cpp">
+      <Filter>AI\DecisionTree\Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekDecision.cpp">
+      <Filter>AI\DecisionTree\Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderDecision.cpp">
+      <Filter>AI\DecisionTree\Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -150,6 +165,21 @@
     </ClInclude>
     <ClInclude Include="ABDecision.h">
       <Filter>AI\DecisionTree\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplexEnemy.h">
+      <Filter>AI\DecisionTree\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShootDecision.h">
+      <Filter>AI\DecisionTree\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekDecision.h">
+      <Filter>AI\DecisionTree\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderDecision.h">
+      <Filter>AI\DecisionTree\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBullet.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
