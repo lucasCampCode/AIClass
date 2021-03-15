@@ -12,11 +12,7 @@ void ShootDecision::makeDecision(Agent* agent, float deltaTime)
         if (enemy)
         {
             Game::getCurrentScene()->addActor(new EnemyBullet(
-                agent->getWorldPosition().x, agent->getWorldPosition().y, 1, "Images/bullet.png", 5, agent->getForward() * 2));
-        }
-        else {
-            Game::getCurrentScene()->addActor(new Bullet(
-                agent->getWorldPosition().x, agent->getWorldPosition().y, 1, "Images/bullet.png", 5, agent->getForward() * 5));
+                agent->getWorldPosition().x, agent->getWorldPosition().y, 1, "Images/bullet.png", 5, agent->getForward() * 2,enemy));
         }
         m_timer = 0;
     }

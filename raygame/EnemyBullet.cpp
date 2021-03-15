@@ -1,14 +1,16 @@
 #include "EnemyBullet.h"
 #include "Game.h"
-#include "Player.h"
+#include "ComplexEnemy.h"
+#include "Character.h"
 
 void EnemyBullet::onCollision(Actor* actor)
 {
-	Player* player = dynamic_cast<Player*>(actor);
-
-	if (player && actor != this)
+	ComplexEnemy* enemy = dynamic_cast<ComplexEnemy*>(actor);
+	Character* other = dynamic_cast<Character*>(actor);
+	if (!enemy && actor != this)
 	{
-		Game::destroy(actor);
+		if(other)
+			other->takeDamage(((Character*)getHost())->getDamage());
 		Game::destroy(this);
 	}
 }

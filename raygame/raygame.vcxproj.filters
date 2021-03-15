@@ -104,6 +104,18 @@
     <ClCompile Include="EnemyBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SeeTargetDecision.cpp">
+      <Filter>AI\DecisionTree\Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionBehavior.cpp">
+      <Filter>AI\SteeringBehaviors\Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthDecision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EvadeDecision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -179,6 +191,18 @@
       <Filter>AI\DecisionTree\Header files</Filter>
     </ClInclude>
     <ClInclude Include="EnemyBullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionBehavior.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SeeTargetDecision.h">
+      <Filter>AI\DecisionTree\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthDecision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EvadeDecision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

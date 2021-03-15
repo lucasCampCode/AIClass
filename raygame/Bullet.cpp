@@ -2,9 +2,10 @@
 #include "Game.h"
 #include "Player.h"
 
-Bullet::Bullet(float x, float y, float collisionRadius, const char* spriteFilePath, float maxSpeed, MathLibrary::Vector2 velocity) : Actor(x, y, collisionRadius, spriteFilePath, maxSpeed)
+Bullet::Bullet(float x, float y, float collisionRadius, const char* spriteFilePath, float maxSpeed, MathLibrary::Vector2 velocity,Actor* host) : Actor(x, y, collisionRadius, spriteFilePath, maxSpeed)
 {
 	setVelocity(velocity);
+	m_host = host;
 }
 
 void Bullet::update(float deltaTime)
@@ -17,13 +18,14 @@ void Bullet::update(float deltaTime)
 
 }
 
-void Bullet::onCollision(Actor* other)
+void Bullet::onCollision(Actor* actor)
 {
-	Player* player = dynamic_cast<Player*>(other);
-
-	if (!player && other != this)
+	Player* player = dynamic_cast<Player*>(actor);
+	Character* other = dynamic_cast<Character*>(actor);
+	if (!player && actor != this)
 	{
-		Game::destroy(other);
+		if(other)
+ 			other->takeDamage(((Character*)getHost())->getDamage());
 		Game::destroy(this);
 	}
 }

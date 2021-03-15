@@ -4,6 +4,7 @@ class Actor;
 
 class EvadeBehavior : public SteeringBehavior
 {
+public:
 	EvadeBehavior();
 	EvadeBehavior(Actor* target, float seekForce = 1);
 

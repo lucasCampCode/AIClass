@@ -35,8 +35,11 @@ void Agent::update(float deltaTime)
 	m_force = { 0,0 };
 
 	//TO DO: update forces
-	for (int i = 0; i < m_behaviors.size(); i++)
-		m_behaviors[i]->update(this, deltaTime);
+	for (int i = 0; i < m_behaviors.size(); i++) 
+	{
+		if (m_behaviors[i]->getEnabled())
+			m_behaviors[i]->update(this, deltaTime);
+	}
 
 	//updates velocity with the new force
 	setVelocity(getVelocity() + m_force * deltaTime);

@@ -4,6 +4,7 @@ class Actor;
 
 class PursueBehavior : public SteeringBehavior
 {
+public:
 	PursueBehavior();
 	PursueBehavior(Actor* target, float seekForce = 1);
 

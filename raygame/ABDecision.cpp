@@ -8,8 +8,10 @@ ABDecision::ABDecision(Decision* left, Decision* right)
 
 void ABDecision::makeDecision(Agent* agent, float deltaTime)
 {
-	if (m_choice)
-		m_left->makeDecision(agent, deltaTime);
+	if (checkCondition(agent,deltaTime))
+		if(m_left)
+			m_left->makeDecision(agent, deltaTime);
 	else
-		m_right->makeDecision(agent, deltaTime);
+		if(m_right)
+			m_right->makeDecision(agent, deltaTime);
 }

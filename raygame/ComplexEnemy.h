@@ -1,8 +1,10 @@
 #pragma once
 #include "Enemy.h"
 //class types to shut the compiler up
-class SeekBehavior;
+class PursueBehavior;
 class WanderingBehavior;
+class DecisionBehavior;
+class EvadeBehavior;
 class ABDecision;
 
 class ComplexEnemy :
@@ -10,17 +12,18 @@ class ComplexEnemy :
 {
 public:
     using Enemy::Enemy;
-    bool checkInSight(float maxAngle);
 
     void start() override;
-    void update(float deltaTime) override;
-    void setSeekForce(float force);
-    void setWanderForce(float force);
+    void update(float deltaTime)override;
     void setTarget(Actor* agent) override;
+
+    PursueBehavior* getPursue() { return m_pursue; }
+    WanderingBehavior* getWander() { return m_wander; }
+    EvadeBehavior* getEvade() { return m_evade; }
 private:
-    ABDecision* m_decision1;
-    ABDecision* m_decision2;
-    SeekBehavior* m_seek;
+    PursueBehavior* m_pursue;
+    DecisionBehavior* m_decision;
     WanderingBehavior* m_wander;
+    EvadeBehavior* m_evade;
 };
 

@@ -22,7 +22,7 @@ void Player::update(float deltatime)
 
     if (Game::getKeyPressed(KEY_SPACE))
         Game::getCurrentScene()->addActor(new Bullet(
-            getWorldPosition().x, getWorldPosition().y, 2, "Images/bullet.png", 5, getForward() * 5));
+            getWorldPosition().x, getWorldPosition().y, 2, "Images/bullet.png", 5, getForward() * 5,this));
 
     Actor::update(deltatime);
 

@@ -3,12 +3,16 @@
 #include "Player.h"
 #include "SimpleEnemy.h"
 #include "ComplexEnemy.h"
-#include "SeekBehavior.h"
-#include "FleeBehavior.h"
 #include "WanderingBehavior.h"
+#include "WanderDecision.h"
+#include "ShootDecision.h"
+#include "SeekDecision.h"
 #include "PursueBehavior.h"
 #include "EvadeBehavior.h"
-#include "ArriveBehavior.h"
+#include "EvadeDecision.h"
+#include "HealthDecision.h"
+#include "DecisionBehavior.h"
+#include "SeeTargetDecision.h"
 
 bool Game::m_gameOver = false;
 Scene** Game::m_scenes = new Scene*;
@@ -34,13 +38,28 @@ void Game::start()
 	m_camera->offset = { (float)m_screenWidth / 2, (float)m_screenHeight / 2 };
 	m_camera->target = { (float)m_screenWidth / 2, (float)m_screenHeight / 2 };
 	m_camera->zoom = 1;
+
+	SeekDecision* seekD = new SeekDecision();
+	WanderDecision* wanderD = new WanderDecision();
+	EvadeDecision* evadeD = new EvadeDecision();
+	ShootDecision* shootD = new ShootDecision();
+	SeeTargetDecision* seeShot = new SeeTargetDecision(shootD,seekD,0.10f);
+	SeeTargetDecision* seePlayer = new SeeTargetDecision(seeShot, wanderD, 0.75f);
+	HealthDecision* healthD = new HealthDecision(seePlayer,evadeD);
+
 	Player* player = new Player(10, 10, 1, "Images/player.png",10,1);
 	ComplexEnemy* enemy = new ComplexEnemy(20, 10, 1, "Images/enemy.png",player,10,2);
+
 	//set the enemy behaviors
-	SeekBehavior* seek = new SeekBehavior();
-	WanderingBehavior* wander = new WanderingBehavior();
-	enemy->addBehavior(seek);
-	enemy->addBehavior(wander);
+	EvadeBehavior* evadeB = new EvadeBehavior(player,10);
+	WanderingBehavior* wanderB = new WanderingBehavior(5,2);
+	PursueBehavior* pursueB = new PursueBehavior(player,10);
+	DecisionBehavior* decisionB = new DecisionBehavior(healthD);
+	enemy->addBehavior(decisionB);
+	enemy->addBehavior(pursueB);
+	enemy->addBehavior(wanderB);
+	enemy->addBehavior(evadeB);
+	
 
 	Scene* scene = new Scene();
 	scene->addActor(player);
