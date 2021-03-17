@@ -3,16 +3,14 @@
 #include "Player.h"
 #include "SimpleEnemy.h"
 #include "ComplexEnemy.h"
-#include "WanderingBehavior.h"
 #include "WanderDecision.h"
 #include "ShootDecision.h"
 #include "SeekDecision.h"
-#include "PursueBehavior.h"
-#include "EvadeBehavior.h"
 #include "EvadeDecision.h"
 #include "HealthDecision.h"
 #include "DecisionBehavior.h"
 #include "SeeTargetDecision.h"
+#include "Graph.h"
 
 bool Game::m_gameOver = false;
 Scene** Game::m_scenes = new Scene*;
@@ -51,29 +49,24 @@ void Game::start()
 	ComplexEnemy* enemy = new ComplexEnemy(20, 10, 1, "Images/enemy.png",player,10,2);
 
 	//set the enemy behaviors
-	EvadeBehavior* evadeB = new EvadeBehavior(player,10);
-	WanderingBehavior* wanderB = new WanderingBehavior(5,2);
-	PursueBehavior* pursueB = new PursueBehavior(player,10);
 	DecisionBehavior* decisionB = new DecisionBehavior(healthD);
 	enemy->addBehavior(decisionB);
-	enemy->addBehavior(pursueB);
-	enemy->addBehavior(wanderB);
-	enemy->addBehavior(evadeB);
 	
+	Graph* graph = new Graph(17, 13, 10, 2);
+	Scene* pathFinding = new Scene();
+	pathFinding->addActor(graph);
 
 	Scene* scene = new Scene();
 	scene->addActor(player);
 	scene->addActor(enemy);
 	addScene(scene);
+	setCurrentScene(addScene(pathFinding));
 	SetTargetFPS(60);
 }
 
 void Game::update(float deltaTime)
 {
-	for (int i = 0; i < m_sceneCount; i++)
-	{
-		m_scenes[i]->update(deltaTime);
-	}
+	getCurrentScene()->update(deltaTime);
 }
 
 void Game::draw()
@@ -83,10 +76,7 @@ void Game::draw()
 	BeginMode2D(*m_camera);
 	ClearBackground(BLACK);
 
-	for (int i = 0; i < m_sceneCount; i++)
-	{
-		m_scenes[i]->draw();
-	}
+	getCurrentScene()->draw();
 
 	EndMode2D();
 	EndDrawing();
