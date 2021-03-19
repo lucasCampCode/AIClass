@@ -13,7 +13,6 @@ public:
 
     void BFS(int startX, int startY, int goalX, int goalY);
     std::vector<Node*> dijkstra(int startX, int startY, int goalX, int goalY);
-    std::vector<Node*> dijkstraCustom(int startX, int startY, int goalX, int goalY);
     Node* getNode(int xPos, int yPos);
 private:
     void createGraph(int nodeSize, int nodeSpacing);
