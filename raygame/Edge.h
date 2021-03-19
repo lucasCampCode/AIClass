@@ -10,6 +10,7 @@ public:
     Edge(Node* node1, Node* node2);
     Node* connectedNode1;
     Node* connectedNode2;
+    int color = 0xFFFFFFFF;
     float cost;
     void draw() override;
     void update(float deltaTime) override;

@@ -52,7 +52,9 @@ void Game::start()
 	DecisionBehavior* decisionB = new DecisionBehavior(healthD);
 	enemy->addBehavior(decisionB);
 	
-	Graph* graph = new Graph(17, 13, 10, 2);
+	Graph* graph = new Graph(25, 20, 5, 1);
+	graph->setWorldPosition({ 1,1 });
+	graph->dijkstra(0, 0, 15, 5);
 	Scene* pathFinding = new Scene();
 	pathFinding->addActor(graph);
 

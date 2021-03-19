@@ -11,8 +11,11 @@ public:
     Node(int x, int y, int nodeSize);
     std::vector<Edge*> edges;
     MathLibrary::Vector2 graphPosition;
+    Node* Previous = nullptr;
+    int gScore = 0;
     int color = 0xFFFFFFFF;
     int size = 1;
+    bool visited;
     void draw() override;
     void update(float deltaTime) override;
 };

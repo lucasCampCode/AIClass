@@ -11,8 +11,6 @@ Node::Node(int x, int y, int nodeSize)
 
 void Node::draw()
 {
-	//draws a circle that represents the node
-	DrawCircle(getWorldPosition().x * 32, getWorldPosition().y * 32, size, GetColor(color));
 	//draws all edges connected to this node
 	for (int i = 0; i < edges.size(); i++)
 	{
@@ -20,6 +18,8 @@ void Node::draw()
 		if (edges[i]->connectedNode1->graphPosition == graphPosition)
 			edges[i]->draw();
 	}
+	//draws a circle that represents the node
+	DrawCircle(getWorldPosition().x * 32, getWorldPosition().y * 32, size, GetColor(color));
 }
 
 void Node::update(float deltaTime)
