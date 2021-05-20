@@ -11,8 +11,8 @@ class ComplexEnemy :
     public Enemy
 {
 public:
+    ~ComplexEnemy();
     using Enemy::Enemy;
-
     void start() override;
     void update(float deltaTime)override;
     void setTarget(Actor* agent) override;

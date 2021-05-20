@@ -6,7 +6,7 @@ Edge::Edge(Node* node1, Node* node2): Actor(0,0,0,' ',0)
 {
 	connectedNode1 = node1;
 	connectedNode2 = node2;
-	cost = 1;
+	cost = 1.0f;
 }
 
 void Edge::draw()
@@ -14,7 +14,7 @@ void Edge::draw()
 	//draw a lineto represent each edge on the graph
 	DrawLine(getWorldPosition().x * 32, getWorldPosition().y * 32,
 		connectedNode2->getWorldPosition().x * 32, connectedNode2->getWorldPosition().y * 32, 
-		WHITE);
+		GetColor(color));
 }
 
 void Edge::update(float deltaTime)

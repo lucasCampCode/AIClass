@@ -4,10 +4,17 @@
 #include "WanderingBehavior.h"
 #include "EvadeBehavior.h"
 #include "Game.h"
+ComplexEnemy::~ComplexEnemy()
+{
+    Actor::~Actor();
+
+    delete m_evade;
+    delete m_wander;
+    delete m_pursue;
+}
 void ComplexEnemy::start()
 {
     Enemy::start();
-
     EvadeBehavior* evade = new EvadeBehavior(getTarget(), 10);
     WanderingBehavior* wander = new WanderingBehavior(5, 2);
     PursueBehavior* pursue = new PursueBehavior(getTarget(), 10);
